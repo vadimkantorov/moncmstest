@@ -7,9 +7,9 @@ update:
 .PHONY: assets
 assets:
 	-rm -rf packages/lexical-playground/build
-	cp indexToolbar.tsx packages/lexical-playground/src/plugins/ToolbarPlugin/index.tsx
-	cp indexEditorOnly.tsx packages/lexical-playground/src/indexEditorOnly.tsx
-	sed -i 's@index.tsx@indexEditorOnly.tsx@' packages/lexical-playground/index.html
+	#cp indexToolbar.tsx packages/lexical-playground/src/plugins/ToolbarPlugin/index.tsx
+	#cp indexEditorOnly.tsx packages/lexical-playground/src/indexEditorOnly.tsx
+	#sed -i 's@index.tsx@indexEditorOnly.tsx@' packages/lexical-playground/index.html
 	sed -i "s@FigmaEmbedConfig,@@" packages/lexical-playground/src/plugins/AutoEmbedPlugin/index.tsx
 	sed -i "s@import moduleResolution from '../shared/viteModuleResolution';@import * as path from 'node:path';@" packages/lexical-playground/vite.prod.config.ts
 	sed -i "s@alias: moduleResolution('production')@alias: [ { find: 'shared', replacement: path.resolve('../shared/src') } ]@" packages/lexical-playground/vite.prod.config.ts
