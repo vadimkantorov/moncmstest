@@ -14,6 +14,7 @@ vanillabug:
 	#sed -i "s@FigmaEmbedConfig,@@" packages/lexical-playground/src/plugins/AutoEmbedPlugin/index.tsx
 	sed -i "s@import moduleResolution from '../shared/viteModuleResolution';@import * as path from 'node:path';@"               packages/lexical-playground/vite.prod.config.ts
 	sed -i "s@alias: moduleResolution('production')@alias: [ { find: 'shared', replacement: path.resolve('../shared/src') } ]@" packages/lexical-playground/vite.prod.config.ts
+	npm install terser 
 	npm install --prefix packages/lexical-playground --force
 	npm run --prefix packages/lexical-playground  build-prod
 
