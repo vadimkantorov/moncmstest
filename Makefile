@@ -7,7 +7,7 @@ vanilla:
 	npm run build
 	npm run --prefix packages/lexical-playground  build-prod
 
-playgroundonly:
+lexicalplaygroundonly:
 	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1 lexical-$(LEXICALVER)/packages/lexical-playground lexical-$(LEXICALVER)/packages/shared
 	npm install glob
 	sed -i "s@FigmaEmbedConfig,@@" packages/lexical-playground/src/plugins/AutoEmbedPlugin/index.tsx
@@ -22,5 +22,5 @@ playgroundonly:
 	#
 	#npm install --force --prefix packages/lexical-playground @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
 	#npm run --prefix packages/lexical-playground build-prod
-	npm install --force @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
+	#npm install --force @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
 	npm run build-prod
