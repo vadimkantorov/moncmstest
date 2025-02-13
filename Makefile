@@ -22,6 +22,7 @@ assets:
 	##sed -i "s@split: new URL('./split/index.html', import.meta.url).pathname,@},output: { format: 'iife',/*'es',*/ compact: false, manualChunks: false, inlineDynamicImports: true, entryFileNames: '[name].js',   /* currently does not work for the legacy bundle*/ assetFileNames: '[name].[ext]', /* currently does not work for images*/@" packages/lexical-playground/vite.prod.config.ts
 	##sed -i "s@minify: 'terser'@minify: false@" packages/lexical-playground/vite.prod.config.ts
 	#
-	npm install --force --prefix packages/lexical-playground @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser glob
-	npm install glob
-	npm run --prefix packages/lexical-playground build-prod
+	#npm install glob
+	#npm install --force --prefix packages/lexical-playground @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
+	#npm run --prefix packages/lexical-playground build-prod
+	npm run build
