@@ -1,6 +1,7 @@
 LEXICALVER = 0.24.0
 
 vanilla: 
+	-mv Makefile .Makefile && mv README.md .README.md && rm -rf * && mv .Makefile Makefile && mv .README.md README.md
 	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1
 	npm install glob terser
 	npm install --prefix packages/lexical-playground --force
