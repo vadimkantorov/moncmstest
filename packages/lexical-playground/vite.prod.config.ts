@@ -12,19 +12,19 @@ import react from '@vitejs/plugin-react';
 import {defineConfig} from 'vite';
 import {replaceCodePlugin} from 'vite-plugin-replace';
 
-import * as path from 'node:path';
+import moduleResolution from '../shared/viteModuleResolution';
 import viteCopyEsm from './viteCopyEsm';
 import viteCopyExcalidrawAssets from './viteCopyExcalidrawAssets';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
-    minify: false,
+    minify: 'terser',
     outDir: 'build',
     rollupOptions: {
       input: {
         main: new URL('./index.html', import.meta.url).pathname,
-        },output: { format: 'iife',/*'es',*/ compact: false, manualChunks: false, inlineDynamicImports: true, entryFileNames: '[name].js',   /* currently does not work for the legacy bundle*/ assetFileNames: '[name].[ext]', /* currently does not work for images*/
+        split: new URL('./split/index.html', import.meta.url).pathname,
       },
       onwarn(warning, warn) {
         if (
@@ -79,6 +79,6 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: [ { find: 'shared', replacement: path.resolve('../shared/src') } ],
+    alias: moduleResolution('production'),
   },
 });

@@ -2,11 +2,12 @@ LEXICALVER = 0.24.0
 
 .PHONY: update
 update:
-	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1 lexical-$(LEXICALVER)/packages/lexical-playground lexical-$(LEXICALVER)/packages/shared && git add -A -f packages
+	-rm -rf packages/
+	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1 lexical-$(LEXICALVER)/packages/lexical-playground lexical-$(LEXICALVER)/packages/shared && git add -A -f packages/
 
 .PHONY: assets
 assets:
-	-rm -rf packages/lexical-playground/build
+	-rm -rf packages/lexical-playground/build/
 	#cp indexToolbar.tsx packages/lexical-playground/src/plugins/ToolbarPlugin/index.tsx
 	#cp indexEditorOnly.tsx packages/lexical-playground/src/indexEditorOnly.tsx
 	#sed -i 's@index.tsx@indexEditorOnly.tsx@' packages/lexical-playground/index.html
