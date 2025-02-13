@@ -21,6 +21,6 @@ lexicalplaygroundonly:
 	##sed -i 's@index.tsx@indexEditorOnly.tsx@' packages/lexical-playground/index.html
 	##sed -i "s@split: new URL('./split/index.html', import.meta.url).pathname,@},output: { format: 'iife',/*'es',*/ compact: false, manualChunks: false, inlineDynamicImports: true, entryFileNames: '[name].js',   /* currently does not work for the legacy bundle*/ assetFileNames: '[name].[ext]', /* currently does not work for images*/@" packages/lexical-playground/vite.prod.config.ts
 	#
-	npm install glob terser
+	npm install glob terser vite-plugin-singlefile
 	npm install --prefix packages/lexical-playground --force
 	npm run --prefix packages/lexical-playground  build-prod
