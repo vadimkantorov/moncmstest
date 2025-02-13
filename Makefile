@@ -23,4 +23,5 @@ assets:
 	##sed -i "s@minify: 'terser'@minify: false@" packages/lexical-playground/vite.prod.config.ts
 	#
 	npm install --force --prefix packages/lexical-playground @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser glob
+	npm install glob
 	npm run --prefix packages/lexical-playground build-prod
