@@ -9,7 +9,7 @@ vanilla:
 
 lexicalplaygroundonly:
 	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1 lexical-$(LEXICALVER)/packages/lexical-playground lexical-$(LEXICALVER)/packages/shared
-	npm install glob
+	npm install glob terser
 	npm install --prefix packages/lexical-playground --force
 	#npm install --force @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
 	sed -i "s@FigmaEmbedConfig,@@" packages/lexical-playground/src/plugins/AutoEmbedPlugin/index.tsx
