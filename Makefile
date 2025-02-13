@@ -10,6 +10,8 @@ vanilla:
 lexicalplaygroundonly:
 	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1 lexical-$(LEXICALVER)/packages/lexical-playground lexical-$(LEXICALVER)/packages/shared
 	npm install glob
+	npm install --prefix packages/lexical-playground --force
+	#npm install --force @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
 	sed -i "s@FigmaEmbedConfig,@@" packages/lexical-playground/src/plugins/AutoEmbedPlugin/index.tsx
 	sed -i "s@import moduleResolution from '../shared/viteModuleResolution';@import * as path from 'node:path';@"               packages/lexical-playground/vite.prod.config.ts
 	sed -i "s@alias: moduleResolution('production')@alias: [ { find: 'shared', replacement: path.resolve('../shared/src') } ]@" packages/lexical-playground/vite.prod.config.ts
@@ -22,5 +24,4 @@ lexicalplaygroundonly:
 	#
 	#npm install --force --prefix packages/lexical-playground @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
 	#npm run --prefix packages/lexical-playground build-prod
-	#npm install --force @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser
 	npm run --prefix packages/lexical-playground  build-prod
