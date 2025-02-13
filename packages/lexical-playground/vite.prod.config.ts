@@ -78,7 +78,7 @@ export default defineConfig({
       // because @rollup/plugin-commonjs does not analyze it correctly
       strictRequires: [/\/node_modules\/(react-dom|react)\/[^/]\.js$/],
     }),
-    viteSingleFile()
+    //viteSingleFile()
   ],
   resolve: {
     alias: [ { find: 'shared', replacement: path.resolve('../shared/src') } ],
