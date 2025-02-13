@@ -1,5 +1,12 @@
 LEXICALVER = 0.24.0
 
+all:
+	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1
+	npm install glob
+	npm install --prefix packages/lexical-playground --force
+	npm run build
+	npm run --prefix packages/lexical-playground  build-prod
+
 .PHONY: lexical
 lexical:
 	curl -L https://github.com/facebook/lexical/archive/refs/tags/v$(LEXICALVER).tar.gz | tar -xzf - --strip-components=1
@@ -27,4 +34,3 @@ assets:
 	#npm run --prefix packages/lexical-playground build-prod
 	npm install --force @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser glob
 	npm run build-prod
-	find .
