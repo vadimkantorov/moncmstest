@@ -27,3 +27,4 @@ assets:
 	#npm run --prefix packages/lexical-playground build-prod
 	npm install --force @rollup/plugin-babel @babel/plugin-transform-flow-strip-types @babel/preset-react terser glob
 	npm run build
+	find .
