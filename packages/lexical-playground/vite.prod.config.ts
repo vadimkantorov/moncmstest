@@ -11,9 +11,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import react from '@vitejs/plugin-react';
 import {defineConfig} from 'vite';
 import {replaceCodePlugin} from 'vite-plugin-replace';
-import { viteSingleFile } from "vite-plugin-singlefile"
 
-import * as path from 'node:path';
+import {viteSingleFile} from vite-plugin-singlefile; import * as path from 'node:path';
 import viteCopyEsm from './viteCopyEsm';
 import viteCopyExcalidrawAssets from './viteCopyExcalidrawAssets';
 
@@ -73,12 +72,11 @@ export default defineConfig({
     react(),
     ...viteCopyExcalidrawAssets(),
     viteCopyEsm(),
-    commonjs({
+    viteSingleFile(), commonjs({
       // This is required for React 19 (at least 19.0.0-beta-26f2496093-20240514)
       // because @rollup/plugin-commonjs does not analyze it correctly
       strictRequires: [/\/node_modules\/(react-dom|react)\/[^/]\.js$/],
     }),
-    viteSingleFile()
   ],
   resolve: {
     alias: [ { find: 'shared', replacement: path.resolve('../shared/src') } ],
