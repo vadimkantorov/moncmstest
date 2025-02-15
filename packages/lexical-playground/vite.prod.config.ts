@@ -12,7 +12,7 @@ import react from '@vitejs/plugin-react';
 import {defineConfig} from 'vite';
 import {replaceCodePlugin} from 'vite-plugin-replace';
 
-import {viteSingleFile} from vite-plugin-singlefile; import * as path from 'node:path';
+import {viteSingleFile} from 'vite-plugin-singlefile'; import * as path from 'node:path';
 import viteCopyEsm from './viteCopyEsm';
 import viteCopyExcalidrawAssets from './viteCopyExcalidrawAssets';
 
